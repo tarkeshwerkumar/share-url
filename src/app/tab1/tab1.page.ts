@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
-import * as admin from 'firebase-admin';
+import { Storage } from '@ionic/storage';
 
-
+import { firestore } from 'firebase/app';
 
 
 @Component({
@@ -16,7 +16,11 @@ export class Tab1Page {
   url: string = '';
   userId: string = '';
 
-  constructor(private alert: AlertController, private db: AngularFirestore) {}
+  constructor(
+    private alert: AlertController, 
+    private db: AngularFirestore,
+    private storage: Storage
+    ) {}
 
   async showAlert(message: string){
     const alert = this.alert.create({
@@ -44,6 +48,7 @@ export class Tab1Page {
         if(data.exists){
           dataRef.set({url: this.url});
           this.showAlert('URL sent!');
+          this.saveHistory(this.url);
           this.url = '';
           this.userId = '';
         }else{
@@ -51,6 +56,23 @@ export class Tab1Page {
         }
       })
     }
+  }
+
+  saveHistory(url){
+    this.storage.get('userid').then(id => {
+      if(id){
+        const docRef = this.db.collection('Sent-URL-History').doc(id);
+        docRef.get().toPromise().then(doc => {
+          if(doc.exists){
+            docRef.update({
+              urls: firestore.FieldValue.arrayUnion(url)
+            });
+          }else{
+            docRef.set({urls: [url]});
+          }
+        });
+      }
+    });
   }
 
   validURL(): boolean{

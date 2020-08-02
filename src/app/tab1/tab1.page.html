@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="warning"> 
+  <ion-toolbar color="primary" mode='ios'> 
     <ion-title>
       Share URL
     </ion-title>
@@ -7,11 +7,54 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row style="margin-top: 35px;">
+      <ion-col>
+        <ion-card mode='ios'>
+          <ion-card-content>
+            <ion-text style="text-align: center;" color='primary'>
+              <h1 style="text-decoration: underline;margin-bottom: 10px;">Sharing Guide</h1>
+            </ion-text>
+            <ion-list>
+              <ion-text color='success'>1.</ion-text> You should have a valid reciever user id.
+            </ion-list>
+            <ion-list>
+              <ion-text color='success'>2.</ion-text> URL Should contain http or https.
+            </ion-list>
+            <ion-list>
+              <ion-text color='success'>3.</ion-text> Better option is copy URL from browser and paste in the URL field.
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size='1'></ion-col>
+      <ion-col size='10'>
+        <ion-text style="text-align: center;" color="primary">
+          <h2 style="text-decoration: underline;">Share Details</h2>
+        </ion-text>
+        <ion-item>
+          <ion-input placeholder="Reciever's user id" [(ngModel)]="userId"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea placeholder="Example :- http://www.google.com" [(ngModel)]="url"
+          rows="4"
+          ></ion-textarea>
+        </ion-item>
+        <ion-button color="primary" expand="block" style="margin-top: 24px;"
+        (click)="shareURL()"
+        >Share</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- <ion-content [fullscreen]="true">
   <ion-item>
     <ion-input placeholder="Reciever's id" [(ngModel)]="userId"></ion-input>
   </ion-item>
 <ion-item>
-  <!-- <ion-input placeholder="Paste URL Here" [(ngModel)]="url"></ion-input> -->
   <ion-textarea placeholder="Url should contain http or https , example :- http://www.google.com" [(ngModel)]="url"
   rows="6"
   ></ion-textarea>
@@ -20,4 +63,4 @@
   <ion-button color="success" expand="block"
   (click)="shareURL()"
   >Share</ion-button>
-</ion-content>
+</ion-content> -->
