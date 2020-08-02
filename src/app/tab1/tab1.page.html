@@ -1,17 +1,23 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="warning"> 
     <ion-title>
-      Tab 1
+      Share URL
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-item>
+    <ion-input placeholder="Reciever's id" [(ngModel)]="userId"></ion-input>
+  </ion-item>
+<ion-item>
+  <!-- <ion-input placeholder="Paste URL Here" [(ngModel)]="url"></ion-input> -->
+  <ion-textarea placeholder="Url should contain http or https , example :- http://www.google.com" [(ngModel)]="url"
+  rows="6"
+  ></ion-textarea>
+</ion-item>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-button color="success" expand="block"
+  (click)="shareURL()"
+  >Share</ion-button>
 </ion-content>

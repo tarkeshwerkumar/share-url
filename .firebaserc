@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "shareanyidea-7": {
+      "hosting": {
+        "app": [
+          "shareanyidea-7"
+        ]
+      }
+    }
+  }
+}
