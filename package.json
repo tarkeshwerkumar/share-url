@@ -31,7 +31,7 @@
     "cordova-plugin-nativestorage": "^2.3.2",
     "cordova-sqlite-storage": "^5.0.1",
     "firebase": "^7.13.1",
-    "firebase-admin": "^9.0.0",
+    "firebase-admin": "^11.7.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -55,7 +55,7 @@
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
-    "firebase-tools": "^8.0.0",
+    "firebase-tools": "^11.28.0",
     "fuzzy": "^0.1.3",
     "inquirer": "^6.2.2",
     "inquirer-autocomplete-prompt": "^1.0.1",
